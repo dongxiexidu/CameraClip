@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11E13F8E21831F4600EF3098 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E13F8D21831F4600EF3098 /* AppDelegate.m */; };
+		11E13F9121831F4600EF3098 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E13F9021831F4600EF3098 /* ViewController.m */; };
+		11E13F9421831F4600EF3098 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E13F9221831F4600EF3098 /* Main.storyboard */; };
+		11E13F9621831F4800EF3098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11E13F9521831F4800EF3098 /* Assets.xcassets */; };
+		11E13F9921831F4800EF3098 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E13F9721831F4800EF3098 /* LaunchScreen.storyboard */; };
+		11E13F9C21831F4800EF3098 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E13F9B21831F4800EF3098 /* main.m */; };
+		11E13FA721831FCF00EF3098 /* ZKIDCardCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E13FA421831FCF00EF3098 /* ZKIDCardCameraController.m */; };
+		11E13FA821831FCF00EF3098 /* ZKIDCardFloatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E13FA621831FCF00EF3098 /* ZKIDCardFloatingView.m */; };
+		11E13FAC21832F1400EF3098 /* DXIDCardCamera.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 11E13FAB21832F1400EF3098 /* DXIDCardCamera.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11E13F8921831F4600EF3098 /* 身份证拍照截取.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "身份证拍照截取.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11E13F8C21831F4600EF3098 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		11E13F8D21831F4600EF3098 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		11E13F8F21831F4600EF3098 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		11E13F9021831F4600EF3098 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		11E13F9321831F4600EF3098 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11E13F9521831F4800EF3098 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11E13F9821831F4800EF3098 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		11E13F9A21831F4800EF3098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11E13F9B21831F4800EF3098 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		11E13FA321831FCF00EF3098 /* ZKIDCardCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIDCardCameraController.h; sourceTree = "<group>"; };
+		11E13FA421831FCF00EF3098 /* ZKIDCardCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIDCardCameraController.m; sourceTree = "<group>"; };
+		11E13FA521831FCF00EF3098 /* ZKIDCardFloatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIDCardFloatingView.h; sourceTree = "<group>"; };
+		11E13FA621831FCF00EF3098 /* ZKIDCardFloatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIDCardFloatingView.m; sourceTree = "<group>"; };
+		11E13FAB21832F1400EF3098 /* DXIDCardCamera.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DXIDCardCamera.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11E13F8621831F4600EF3098 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11E13F8021831F4600EF3098 = {
+			isa = PBXGroup;
+			children = (
+				11E13F8B21831F4600EF3098 /* 身份证拍照截取 */,
+				11E13F8A21831F4600EF3098 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11E13F8A21831F4600EF3098 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11E13F8921831F4600EF3098 /* 身份证拍照截取.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11E13F8B21831F4600EF3098 /* 身份证拍照截取 */ = {
+			isa = PBXGroup;
+			children = (
+				11E13FA221831FCF00EF3098 /* Source */,
+				11E13F8C21831F4600EF3098 /* AppDelegate.h */,
+				11E13F8D21831F4600EF3098 /* AppDelegate.m */,
+				11E13F8F21831F4600EF3098 /* ViewController.h */,
+				11E13F9021831F4600EF3098 /* ViewController.m */,
+				11E13F9221831F4600EF3098 /* Main.storyboard */,
+				11E13F9521831F4800EF3098 /* Assets.xcassets */,
+				11E13F9721831F4800EF3098 /* LaunchScreen.storyboard */,
+				11E13F9A21831F4800EF3098 /* Info.plist */,
+				11E13F9B21831F4800EF3098 /* main.m */,
+			);
+			path = "身份证拍照截取";
+			sourceTree = "<group>";
+		};
+		11E13FA221831FCF00EF3098 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				11E13FAB21832F1400EF3098 /* DXIDCardCamera.bundle */,
+				11E13FA321831FCF00EF3098 /* ZKIDCardCameraController.h */,
+				11E13FA421831FCF00EF3098 /* ZKIDCardCameraController.m */,
+				11E13FA521831FCF00EF3098 /* ZKIDCardFloatingView.h */,
+				11E13FA621831FCF00EF3098 /* ZKIDCardFloatingView.m */,
+			);
+			path = Source;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11E13F8821831F4600EF3098 /* 身份证拍照截取 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11E13F9F21831F4800EF3098 /* Build configuration list for PBXNativeTarget "身份证拍照截取" */;
+			buildPhases = (
+				11E13F8521831F4600EF3098 /* Sources */,
+				11E13F8621831F4600EF3098 /* Frameworks */,
+				11E13F8721831F4600EF3098 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "身份证拍照截取";
+			productName = "身份证拍照截取";
+			productReference = 11E13F8921831F4600EF3098 /* 身份证拍照截取.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11E13F8121831F4600EF3098 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = shangZhu;
+				TargetAttributes = {
+					11E13F8821831F4600EF3098 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 11E13F8421831F4600EF3098 /* Build configuration list for PBXProject "身份证拍照截取" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11E13F8021831F4600EF3098;
+			productRefGroup = 11E13F8A21831F4600EF3098 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11E13F8821831F4600EF3098 /* 身份证拍照截取 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11E13F8721831F4600EF3098 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11E13F9921831F4800EF3098 /* LaunchScreen.storyboard in Resources */,
+				11E13FAC21832F1400EF3098 /* DXIDCardCamera.bundle in Resources */,
+				11E13F9621831F4800EF3098 /* Assets.xcassets in Resources */,
+				11E13F9421831F4600EF3098 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11E13F8521831F4600EF3098 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11E13F9121831F4600EF3098 /* ViewController.m in Sources */,
+				11E13F9C21831F4800EF3098 /* main.m in Sources */,
+				11E13FA721831FCF00EF3098 /* ZKIDCardCameraController.m in Sources */,
+				11E13FA821831FCF00EF3098 /* ZKIDCardFloatingView.m in Sources */,
+				11E13F8E21831F4600EF3098 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		11E13F9221831F4600EF3098 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11E13F9321831F4600EF3098 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		11E13F9721831F4800EF3098 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11E13F9821831F4800EF3098 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11E13F9D21831F4800EF3098 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		11E13F9E21831F4800EF3098 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11E13FA021831F4800EF3098 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45S7UXYXC7;
+				INFOPLIST_FILE = "身份证拍照截取/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shangzhu.-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		11E13FA121831F4800EF3098 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45S7UXYXC7;
+				INFOPLIST_FILE = "身份证拍照截取/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shangzhu.-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11E13F8421831F4600EF3098 /* Build configuration list for PBXProject "身份证拍照截取" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11E13F9D21831F4800EF3098 /* Debug */,
+				11E13F9E21831F4800EF3098 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11E13F9F21831F4800EF3098 /* Build configuration list for PBXNativeTarget "身份证拍照截取" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11E13FA021831F4800EF3098 /* Debug */,
+				11E13FA121831F4800EF3098 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11E13F8121831F4600EF3098 /* Project object */;
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPL-M3-ttY">
+                                <rect key="frame" x="0.0" y="100" width="375" height="49"/>
+                                <color key="backgroundColor" red="1" green="0.60071486230000004" blue="0.20166948439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bPL-M3-ttY" secondAttribute="height" multiplier="343:45" id="UNa-Zn-obm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="正面">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="frontClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qsp-N0-BGb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxv-Aw-8gA">
+                                <rect key="frame" x="0.0" y="195" width="375" height="49.5"/>
+                                <color key="backgroundColor" red="1" green="0.60071486230000004" blue="0.20166948439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Uxv-Aw-8gA" secondAttribute="height" multiplier="343:45" id="3Ss-hK-lFP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="反面">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reverseClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RKK-RP-vHf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O01-hD-9qF">
+                                <rect key="frame" x="37.5" y="338.5" width="300" height="190"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="We1-JD-ymi"/>
+                                    <constraint firstAttribute="height" constant="190" id="vgC-5n-iDg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bPL-M3-ttY" firstAttribute="leading" secondItem="Uxv-Aw-8gA" secondAttribute="leading" id="2Qy-GV-Asf"/>
+                            <constraint firstItem="bPL-M3-ttY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="60U-7b-rro"/>
+                            <constraint firstItem="bPL-M3-ttY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="CGx-vj-N4y"/>
+                            <constraint firstItem="Uxv-Aw-8gA" firstAttribute="width" secondItem="Uxv-Aw-8gA" secondAttribute="height" multiplier="343:45" id="DMg-To-qbj"/>
+                            <constraint firstItem="O01-hD-9qF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OEc-6d-ONJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bPL-M3-ttY" secondAttribute="trailing" id="eJ7-sn-hiJ"/>
+                            <constraint firstItem="bPL-M3-ttY" firstAttribute="width" secondItem="bPL-M3-ttY" secondAttribute="height" multiplier="343:45" id="edY-4J-qpm"/>
+                            <constraint firstItem="bPL-M3-ttY" firstAttribute="width" secondItem="bPL-M3-ttY" secondAttribute="height" multiplier="343:45" id="ion-7f-sLE"/>
+                            <constraint firstItem="Uxv-Aw-8gA" firstAttribute="width" secondItem="Uxv-Aw-8gA" secondAttribute="height" multiplier="343:45" id="j8L-06-I7I"/>
+                            <constraint firstItem="O01-hD-9qF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="k39-fw-bDa"/>
+                            <constraint firstItem="bPL-M3-ttY" firstAttribute="trailing" secondItem="Uxv-Aw-8gA" secondAttribute="trailing" id="kmc-Ka-2NV"/>
+                            <constraint firstItem="Uxv-Aw-8gA" firstAttribute="width" secondItem="Uxv-Aw-8gA" secondAttribute="height" multiplier="343:45" id="nOD-VR-T2k"/>
+                            <constraint firstItem="Uxv-Aw-8gA" firstAttribute="top" secondItem="bPL-M3-ttY" secondAttribute="bottom" constant="46" id="rvN-Ch-JA1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="O01-hD-9qF" id="rcE-2n-Ol9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

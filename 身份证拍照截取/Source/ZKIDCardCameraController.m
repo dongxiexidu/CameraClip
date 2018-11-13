@@ -101,10 +101,10 @@
         CGFloat cancleButtonX = 32;
         CGFloat cancleButtonY = (kScreenH-cancleButtonWH-40);
         self.cancleButton.frame = CGRectMake(cancleButtonX, cancleButtonY, cancleButtonWH, cancleButtonWH);
-
+        
         CGFloat bottomY = (kScreenH-64);
         self.bottomView.frame = CGRectMake(0, bottomY, kScreenW, 64);
- 
+        
         
         UIButton *again = [UIButton buttonWithType:UIButtonTypeCustom];
         [again setTitle:@"重拍" forState:UIControlStateNormal];
@@ -113,7 +113,7 @@
         again.titleLabel.font = [UIFont systemFontOfSize:18];
         again.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.bottomView addSubview:again];
-
+        
         CGFloat againWH = 64;
         CGFloat againX = 12;
         CGFloat againY = 0;
@@ -126,11 +126,11 @@
         use.titleLabel.font = [UIFont systemFontOfSize:18];
         use.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.bottomView addSubview:use];
-
+        
         CGFloat useH = 64;
         CGFloat useX = kScreenW-100;
         use.frame = CGRectMake(useX, 0, 100, useH);
-
+        
         
         CGFloat flashWH = 45;
         CGFloat flashX = kScreenW-flashWH-32;
@@ -178,31 +178,101 @@
 
 - (void)usePhoto {
     if ([self.delegate respondsToSelector:@selector(cameraDidFinishShootWithCameraImage:)]) {
-        [self.delegate cameraDidFinishShootWithCameraImage:self.image];
+        
+        UIImage *newImg = [self image:self.image rotation:UIImageOrientationUp];
+        [self.delegate cameraDidFinishShootWithCameraImage:newImg];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // 对图片进行裁剪
 -(UIImage *)imageFromImage:(UIImage *)image inRect:(CGRect)rect{
-    CGSize size = [image size];
+    UIImage *image1 = image;
+    CGImageRef cgRef = image1.CGImage;
     
-    CGFloat rx = rect.origin.x;
-    CGFloat ry = rect.origin.y;
+    CGFloat widthScale = image1.size.width / kScreenW;
+    CGFloat heightScale = image1.size.height / kScreenH;
     
-    CGFloat rw = rect.size.width;
-    CGFloat rh = rect.size.height;
+    //其实是横屏的
+    //多减掉50是因为最后的效果图片的高度有偏差，不知道原因
+    NSLog(@"%@",NSStringFromCGRect(self.floatingView.IDCardWindowLayer.frame));
+    //    CGFloat orignWidth = 226-50;//226 -50
+    //    CGFloat orginHeight = 360;//360
+    CGFloat orignWidth = self.floatingView.IDCardWindowLayer.bounds.size.width;
+    CGFloat orginHeight = self.floatingView.IDCardWindowLayer.bounds.size.height;
     
-    CGFloat x = rx*size.width/kScreenW;
-    CGFloat y = ry*size.height/kScreenH;
-    CGFloat w = rw*kScreenW/size.width;
-    CGFloat h = rh*kScreenH/size.height;
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(w,h), NO, 0);
-    [image drawAtPoint:CGPointMake(x, y)];
-    UIImage* im = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return im;
+    //我们要裁剪出实际边框内的图片，但是实际的图片和我们看见的屏幕上的img，size是不一样，可以打印一下image的size看看起码好几千的像素，要不然手机拍的照片怎么都是好几兆的呢？
+    CGFloat x = (kScreenH - orginHeight) * 0.5 * heightScale;
+    CGFloat y = (kScreenW - orignWidth) * 0.5 * widthScale;
+    CGFloat width = orginHeight * heightScale;
+    CGFloat height = orignWidth * widthScale;
+    
+    CGRect r = CGRectMake(x, y, width, height);
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect(cgRef, r);
+    
+    // UIImage *thumbScale = [UIImage imageWithCGImage:imageRef];
+    UIImage *thumbScale = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:UIImageOrientationRight];
+    return thumbScale;
 }
+
+
+//提前设置得到图片方向
+
+-(UIImage *)image:(UIImage *)image rotation:(UIImageOrientation)orientation{
+    
+    long double rotate =0.0;
+    CGRect rect;
+    float translateX =0;
+    float translateY =0;
+    float scaleX =1.0;
+    float scaleY =1.0;
+    switch (orientation) {
+        case UIImageOrientationLeft:
+            rotate = M_PI_2;
+            rect = CGRectMake(0,0, image.size.height, image.size.width);
+            translateX = 0;
+            translateY = -rect.size.width;
+            scaleY = rect.size.width/rect.size.height;
+            scaleX = rect.size.height/rect.size.width;
+            break;
+        case UIImageOrientationRight:
+            rotate = 3*M_PI_2;
+            rect = CGRectMake(0,0, image.size.height, image.size.width);
+            translateX = -rect.size.height;
+            translateY = 0;
+            scaleY = rect.size.width/rect.size.height;
+            scaleX = rect.size.height/rect.size.width;
+            break;
+        case UIImageOrientationDown:
+            rotate = M_PI;
+            rect = CGRectMake(0,0, image.size.width, image.size.height);
+            translateX = -rect.size.width;
+            translateY = -rect.size.height;
+            break;
+        default:
+            rotate = 0.0;
+            
+            rect = CGRectMake(0,0, image.size.width, image.size.height);
+            translateX = 0;
+            translateY = 0;
+            break;
+    }
+    
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context =UIGraphicsGetCurrentContext();
+    
+    //做CTM变换
+    CGContextTranslateCTM(context,0.0, rect.size.height);
+    CGContextScaleCTM(context,1.0, -1.0);
+    CGContextRotateCTM(context, rotate);
+    CGContextTranslateCTM(context, translateX, translateY);
+    CGContextScaleCTM(context, scaleX, scaleY);
+    CGContextDrawImage(context,CGRectMake(0,0, rect.size.width, rect.size.height), image.CGImage);
+    UIImage *newPic =UIGraphicsGetImageFromCurrentImageContext();
+    return newPic;
+}
+
 
 - (void)shutterCamera:(UIButton *)sender {
     AVCaptureConnection * videoConnection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
@@ -223,6 +293,7 @@
         [strongSelf.session stopRunning]; // 停止会话
         
         strongSelf.imageView = [[UIImageView alloc] initWithFrame:strongSelf.floatingView.IDCardWindowLayer.frame];
+        // strongSelf.imageView = [[UIImageView alloc] initWithFrame:strongSelf.view.frame];
         [strongSelf.view insertSubview:self.imageView belowSubview:sender];
         strongSelf.imageView.layer.masksToBounds = YES;
         
@@ -360,9 +431,9 @@
     [self.view addSubview:IDCardFloatingView];
     IDCardFloatingView.frame = self.view.bounds;
     self.floatingView = IDCardFloatingView;
-//    [IDCardFloatingView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
+    //    [IDCardFloatingView mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.edges.equalTo(self.view);
+    //    }];
 }
 
 - (void)subjectAreaDidChange:(NSNotification *)notification {

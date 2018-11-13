@@ -133,6 +133,26 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				"da-DK",
+				de,
+				es,
+				fr,
+				hu,
+				id,
+				it,
+				ja,
+				ko,
+				ms,
+				nl,
+				pl,
+				pt,
+				ro,
+				ru,
+				tr,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 11E13F8021831F4600EF3098;
 			productRefGroup = 11E13F8A21831F4600EF3098 /* Products */;
@@ -312,6 +332,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45S7UXYXC7;
 				INFOPLIST_FILE = "身份证拍照截取/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,6 +350,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45S7UXYXC7;
 				INFOPLIST_FILE = "身份证拍照截取/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

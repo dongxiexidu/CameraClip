@@ -28,12 +28,7 @@
 
 @implementation ZKIDCardFloatingView
 
-- (CGFloat)getStringWidthWithText:(NSString *)text size:(CGFloat)fontSize{
-    UIFont *baseFont = [UIFont systemFontOfSize:fontSize];
-    CGSize size =[text sizeWithAttributes:@{NSFontAttributeName : baseFont}];
 
-    return size.width;
-}
 
 
 
@@ -70,8 +65,9 @@
     textLabel.text = text;
     textLabel.textColor = [UIColor whiteColor];
     textLabel.font = [UIFont systemFontOfSize:14];
+    textLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:textLabel];
-    CGFloat W = [self getStringWidthWithText:text size:14];
+    CGFloat W = kScreenH;
     CGFloat H = 20;
     CGFloat X = (kScreenW-W)/2-CGRectGetWidth(self.IDCardWindowLayer.frame)/2.f - 20;
     CGFloat Y = (kScreenH-H)/2;
@@ -113,11 +109,7 @@
     return self;
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
+
 
 #pragma mark - getters and setters
 

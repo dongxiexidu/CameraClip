@@ -135,16 +135,12 @@
         CGFloat flashWH = 45;
         CGFloat flashX = kScreenW-flashWH-32;
         CGFloat flashY = (kScreenH-flashWH-40);
-        self.flashButton.frame = CGRectMake(flashX, flashY, buttonWH, buttonWH);
+        self.flashButton.frame = CGRectMake(flashX, flashY, flashWH, flashWH);
         
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                     action:@selector(focusGesture:)];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focusGesture:)];
         [self.view addGestureRecognizer:tapGesture];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(subjectAreaDidChange:)
-                                                     name:AVCaptureDeviceSubjectAreaDidChangeNotification
-                                                   object:self.device];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subjectAreaDidChange:) name:AVCaptureDeviceSubjectAreaDidChangeNotification object:self.device];
     }
 }
 
@@ -157,7 +153,7 @@
 }
 
 #pragma mark - events Handler
-
+#pragma mark - 重新拍照
 - (void)takePhotoAgain {
     [self.session startRunning];
     [self.imageView removeFromSuperview];
@@ -170,22 +166,22 @@
     self.photoButton.hidden = NO;
     
 }
-
+#pragma mark - 取消拍照
 - (void)cancleButtonAction {
     [self.imageView removeFromSuperview];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+#pragma mark - 使用图片
 - (void)usePhoto {
     if ([self.delegate respondsToSelector:@selector(cameraDidFinishShootWithCameraImage:)]) {
-        
-        UIImage *newImg = [self image:self.image rotation:UIImageOrientationUp];
+        CGImageRef ref = self.image.CGImage;
+        UIImage *newImg = [UIImage imageWithCGImage:ref scale:1.0 orientation:UIImageOrientationUp];
         [self.delegate cameraDidFinishShootWithCameraImage:newImg];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-// 对图片进行裁剪
+#pragma mark -对图片进行裁剪
 -(UIImage *)imageFromImage:(UIImage *)image inRect:(CGRect)rect{
     UIImage *image1 = image;
     CGImageRef cgRef = image1.CGImage;
@@ -217,63 +213,65 @@
 }
 
 
-//提前设置得到图片方向
+//// 提前设置得到图片方向
+//#pragma mark -修改图片方向
+//-(UIImage *)image:(UIImage *)image rotation:(UIImageOrientation)orientation{
+//
+//    long double rotate =0.0;
+//    CGRect rect;
+//    float translateX =0;
+//    float translateY =0;
+//    float scaleX =1.0;
+//    float scaleY =1.0;
+//    switch (orientation) {
+//        case UIImageOrientationLeft:
+//            rotate = M_PI_2;
+//            rect = CGRectMake(0,0, image.size.height, image.size.width);
+//            translateX = 0;
+//            translateY = -rect.size.width;
+//            scaleY = rect.size.width/rect.size.height;
+//            scaleX = rect.size.height/rect.size.width;
+//            break;
+//        case UIImageOrientationRight:
+//            rotate = 3*M_PI_2;
+//            rect = CGRectMake(0,0, image.size.height, image.size.width);
+//            translateX = -rect.size.height;
+//            translateY = 0;
+//            scaleY = rect.size.width/rect.size.height;
+//            scaleX = rect.size.height/rect.size.width;
+//            break;
+//        case UIImageOrientationDown:
+//            rotate = M_PI;
+//            rect = CGRectMake(0,0, image.size.width, image.size.height);
+//            translateX = -rect.size.width;
+//            translateY = -rect.size.height;
+//            break;
+//        default:
+//            rotate = 0.0;
+//
+//            rect = CGRectMake(0,0, image.size.width, image.size.height);
+//            translateX = 0;
+//            translateY = 0;
+//            break;
+//    }
+//
+//    UIGraphicsBeginImageContext(rect.size);
+//    CGContextRef context =UIGraphicsGetCurrentContext();
+//
+//
+//    //做CTM变换
+//    CGContextTranslateCTM(context,0.0, rect.size.height);
+//    CGContextScaleCTM(context,1.0, -1.0);
+//    CGContextRotateCTM(context, rotate);
+//    CGContextTranslateCTM(context, translateX, translateY);
+//    CGContextScaleCTM(context, scaleX, scaleY);
+//
+//    CGContextDrawImage(context,CGRectMake(0,0, rect.size.width, rect.size.height), image.CGImage);
+//    UIImage *newPic =UIGraphicsGetImageFromCurrentImageContext();
+//    return newPic;
+//}
 
--(UIImage *)image:(UIImage *)image rotation:(UIImageOrientation)orientation{
-    
-    long double rotate =0.0;
-    CGRect rect;
-    float translateX =0;
-    float translateY =0;
-    float scaleX =1.0;
-    float scaleY =1.0;
-    switch (orientation) {
-        case UIImageOrientationLeft:
-            rotate = M_PI_2;
-            rect = CGRectMake(0,0, image.size.height, image.size.width);
-            translateX = 0;
-            translateY = -rect.size.width;
-            scaleY = rect.size.width/rect.size.height;
-            scaleX = rect.size.height/rect.size.width;
-            break;
-        case UIImageOrientationRight:
-            rotate = 3*M_PI_2;
-            rect = CGRectMake(0,0, image.size.height, image.size.width);
-            translateX = -rect.size.height;
-            translateY = 0;
-            scaleY = rect.size.width/rect.size.height;
-            scaleX = rect.size.height/rect.size.width;
-            break;
-        case UIImageOrientationDown:
-            rotate = M_PI;
-            rect = CGRectMake(0,0, image.size.width, image.size.height);
-            translateX = -rect.size.width;
-            translateY = -rect.size.height;
-            break;
-        default:
-            rotate = 0.0;
-            
-            rect = CGRectMake(0,0, image.size.width, image.size.height);
-            translateX = 0;
-            translateY = 0;
-            break;
-    }
-    
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context =UIGraphicsGetCurrentContext();
-    
-    //做CTM变换
-    CGContextTranslateCTM(context,0.0, rect.size.height);
-    CGContextScaleCTM(context,1.0, -1.0);
-    CGContextRotateCTM(context, rotate);
-    CGContextTranslateCTM(context, translateX, translateY);
-    CGContextScaleCTM(context, scaleX, scaleY);
-    CGContextDrawImage(context,CGRectMake(0,0, rect.size.width, rect.size.height), image.CGImage);
-    UIImage *newPic =UIGraphicsGetImageFromCurrentImageContext();
-    return newPic;
-}
-
-
+#pragma mark - 拍照
 - (void)shutterCamera:(UIButton *)sender {
     AVCaptureConnection * videoConnection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
     if (!videoConnection) {
@@ -293,7 +291,7 @@
         [strongSelf.session stopRunning]; // 停止会话
         
         strongSelf.imageView = [[UIImageView alloc] initWithFrame:strongSelf.floatingView.IDCardWindowLayer.frame];
-        // strongSelf.imageView = [[UIImageView alloc] initWithFrame:strongSelf.view.frame];
+        
         [strongSelf.view insertSubview:self.imageView belowSubview:sender];
         strongSelf.imageView.layer.masksToBounds = YES;
         
@@ -303,12 +301,10 @@
         strongSelf.cancleButton.hidden = YES;
         strongSelf.flashButton.hidden = YES;
         strongSelf.photoButton.hidden = YES;
-        
         strongSelf.bottomView.hidden = NO;
-        strongSelf.photoButton.hidden = YES;
     }];
 }
-
+#pragma mark:闪光灯
 - (void)flashOn:(UIButton *)sender {
     if ([self.device hasTorch]){ // 判断是否有闪光灯
         [self.device lockForConfiguration:nil];// 请求独占访问硬件设备
@@ -431,9 +427,7 @@
     [self.view addSubview:IDCardFloatingView];
     IDCardFloatingView.frame = self.view.bounds;
     self.floatingView = IDCardFloatingView;
-    //    [IDCardFloatingView mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.edges.equalTo(self.view);
-    //    }];
+
 }
 
 - (void)subjectAreaDidChange:(NSNotification *)notification {
